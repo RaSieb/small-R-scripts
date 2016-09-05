@@ -1,8 +1,12 @@
-require(adegenet)
+#!/usr/bin/Rscript
+# This script is based on the packages "adegenet" and "ape" and 
+# provides some usefull tools to describe groups (read from a .csv) 
+# in a phylogenetic (NJ-)tree created from from a fasta alignment of SNPs.
 
+require(adegenet)
 # load data
-snp_matr <- fasta2genlight("/Users/rsieber/scratch/test_fasta.fasta", saveNbAlleles=T, n.cores = 8)
-epi_data <- read.csv("/Users/rsieber/scratch/test_grps.csv", sep = ";", header = T)
+snp_matr <- fasta2genlight("./test_fasta.fasta", saveNbAlleles=T, n.cores = 8)
+epi_data <- read.csv("./test_grps.csv", sep = ";", header = T)
 
 # Assign groups to sequence file
 pop(snp_matr) <- epi_data[match(indNames(snp_matr) , epi_data$name), "group"]
