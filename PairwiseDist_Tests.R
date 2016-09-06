@@ -3,6 +3,7 @@
 # provides some usefull tools to describe groups (read from a .csv) 
 # in a phylogenetic (NJ-)tree created from from a fasta alignment of SNPs.
 
+if(!require(adegenet)) install.packages(pkgs="adegenet")
 require(adegenet)
 # load data
 snp_matr <- fasta2genlight("./test_fasta.fasta", saveNbAlleles=T, n.cores = 8)
