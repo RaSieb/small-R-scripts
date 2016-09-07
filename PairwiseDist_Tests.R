@@ -4,6 +4,7 @@
 # in a phylogenetic (NJ-)tree created from from a fasta alignment of SNPs.
 
 if(!require(adegenet)) install.packages(pkgs="adegenet")
+if(!require(ape)) install.packages(pkgs="ape")
 require(adegenet)
 # load data
 snp_matr <- fasta2genlight("./test_fasta.fasta", saveNbAlleles=T, n.cores = 8)
